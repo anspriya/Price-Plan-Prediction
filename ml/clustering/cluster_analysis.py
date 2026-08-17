@@ -17,7 +17,7 @@ df = pd.read_csv("final_use_data.csv")
 
 features = [
     "total_mins",
-    "total_calls",
+    "night_mins_share",
     "day_mins_share",
     "eve_mins_share"
 ]
