@@ -1,7 +1,7 @@
 import os
 
 from dotenv import load_dotenv
-from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_groq import ChatGroq
 
 from .recommendation_loader import (
     get_customer_recommendations
@@ -22,23 +22,19 @@ from .prompts import (
 
 load_dotenv()
 
-GEMINI_API_KEY = os.getenv(
-    "GEMINI_API_KEY"
-)
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
-if not GEMINI_API_KEY:
-    raise ValueError(
-        "GEMINI_API_KEY is not set in .env"
-    )
-
+if not GROQ_API_KEY:
+    raise ValueError("GROQ_API_KEY is not set in .env")
 
 # ============================================================
 # GEMINI
 # ============================================================
 
-llm = ChatGoogleGenerativeAI(
-    model="gemini-3.6-flash",
-    google_api_key=GEMINI_API_KEY
+llm = ChatGroq(
+    model="llama-3.3-70b-versatile",
+    groq_api_key=GROQ_API_KEY,
+    temperature=0
 )
 
 
