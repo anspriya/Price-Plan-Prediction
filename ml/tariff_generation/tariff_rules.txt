@@ -1,0 +1,71 @@
+Tariff Plan Generation and Benchmark Pricing
+
+The tariff planning system is designed to generate usage-based telecom tariff plans from historical customer calling behavior. The objective is to create tariff tiers that reflect different customer usage patterns while providing a consistent benchmark for pricing.
+
+1. Customer Usage Analysis
+
+Historical call records are analyzed based on major usage categories:
+
+* Day minutes
+* Evening minutes
+* Night minutes
+* International minutes
+
+Customers with similar usage behavior are grouped into clusters. Each cluster represents a distinct usage profile, such as high-volume, moderate, or time-specific usage patterns.
+
+2. Cluster-Based Tariff Construction
+
+After clustering, the usage distribution within each cluster is analyzed using statistical measures such as percentiles, quartiles, median, and mean.
+
+These statistics help identify different levels of customer demand within a cluster. Based on these usage levels, multiple tariff tiers are constructed with different minute allowances.
+
+The tariff allowances therefore represent usage levels observed in the underlying customer population rather than arbitrary values.
+
+For example, a tariff tier may provide a defined allowance for Day, Evening, Night, and International minutes. Lower tiers target relatively lower usage levels, while higher tiers provide larger allowances for customers with greater usage.
+
+3. Benchmark-Based Pricing
+
+Once the minute allowances are established, each tariff plan is assigned a benchmark monthly price using standard Century telecom benchmark rates.
+
+The benchmark rates used are:
+
+| Usage Category | Benchmark Rate |
+| -------------- | -------------: |
+| Day            |     $0.170/min |
+| Evening        |     $0.085/min |
+| Night          |     $0.045/min |
+| International  |     $0.270/min |
+
+The monthly benchmark price is calculated as:
+
+Monthly Benchmark Price =
+
+`(Day Minutes × 0.170) + (Evening Minutes × 0.085) + (Night Minutes × 0.045) + (International Minutes × 0.270)`
+
+For example, consider a tariff tier with:
+
+* 237 Day minutes
+* 253 Evening minutes
+* 254 Night minutes
+* 20 International minutes
+
+The benchmark price is calculated as:
+
+* Day: 237 × $0.170 = $40.29
+* Evening: 253 × $0.085 = $21.505
+* Night: 254 × $0.045 = $11.43
+* International: 20 × $0.270 = $5.40
+
+Therefore:
+
+Monthly Benchmark Price = $78.63
+
+4. Interpretation
+
+The resulting price represents a benchmark/reference value for the tariff plan. It provides a consistent monetary basis for comparing plans with different usage allowances.
+
+The overall process can therefore be summarized as:
+
+Historical Usage → Customer Clustering → Usage Distribution Analysis → Tariff Allowances → Benchmark Rate Calculation → Monthly Benchmark Price**
+
+This approach enables the system to generate differentiated tariff plans based on actual customer usage patterns while maintaining a transparent and reproducible pricing methodology.
